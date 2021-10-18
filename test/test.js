@@ -9,26 +9,31 @@ const { expect } = require('chai');
  * create a set of roman numbers 5 -> V
  * create a set of roman numbers 6,7,8 -> VI,VII,VIII
  * create a set of roman numbers 9,10 -> IX, X 
+ * create a set of roman numbers 11,12,13 -> XI, XII , XIII 
+
  */
 
 
 function convert(num) {
   if(num == 4) return 'IV';
+  if(num == 9) return 'IX';
 
   if(num <= 3) {
-    let result = '';
-    for (let i = 0 ; i < num ; i++) { 
-      result += 'I' 
-    }
-    return result;
+    return process(0,num,'');
   }
 
-  let result = 'V';
-  for (let i = 5 ; i < num ; i++) { 
-    result += 'I' 
+  if(num < 9) {
+    return process(5,num,'V');
+  }
+
+  return process(10,num,'X');
+}
+
+function process ( start , num , result ) {
+  for (let i = start ; i < num ; i++) { 
+    result += 'I';
   }
   return result;
-     
 }
 
 
@@ -98,3 +103,46 @@ it('Returns the char VI for number 6', function() {
   expect(result).to.equal(expected);
 })
 
+it('Returns the char VII for number 7', function() {
+  //given
+  const expected = 'VII';
+  
+  //when
+  const result = convert(7);
+  
+  //then
+  expect(result).to.equal(expected);
+})
+
+it('Returns the char VIII for number 8', function() {
+  //given
+  const expected = 'VIII';
+  
+  //when
+  const result = convert(8);
+  
+  //then
+  expect(result).to.equal(expected);
+})
+
+it('Returns the char IX for number 9', function() {
+  //given
+  const expected = 'IX';
+  
+  //when
+  const result = convert(9);
+  
+  //then
+  expect(result).to.equal(expected);
+})
+
+it('Returns the char X for number 10', function() {
+  //given
+  const expected = 'X';
+  
+  //when
+  const result = convert(10);
+  
+  //then
+  expect(result).to.equal(expected);
+})
