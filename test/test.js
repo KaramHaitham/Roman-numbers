@@ -2,16 +2,7 @@ const { expect } = require('chai');
 
 
 /**
- * create a set of roman numbers 1 -> I - ok
- * create a set of roman numbers 2 -> II - ok
- * create a set of roman numbers 3 -> III - ok
- * create a set of roman numbers 4 -> IV - ok
- * create a set of roman numbers 5 -> V - ok
- * create a set of roman numbers 6,7,8 -> VI,VII,VIII - ok
- * create a set of roman numbers 9,10 -> IX, X - ok
- * create a set of roman numbers 11,12,13 -> XI, XII , XIII - ok
  * create a set of roman numbers 14,15,16 -> XIV, XV , XVI
-
  */
 
  const baseMapping = {
@@ -21,10 +12,6 @@ const { expect } = require('chai');
 }
 
 function convert(num) {
-  if(num == 4) return 'IV';
-  if(num == 9) return 'IX';
-  if(num == 14) return 'XIV';
-
   let base;
   if(num <= 3) {
     base = 0;
@@ -36,17 +23,23 @@ function convert(num) {
     base = 10;
   }
 
-  return process(base, num);
-}
-
-function process(start, num) {
-  let result = baseMapping[start];
-
-  for (let i = start ; i < num ; i++) {
-    result += 'I';
+  if(num == 14) {
+    return 'XIV';
   }
 
-  return result;
+  let result = baseMapping[base];
+
+  let left = '';
+  if(num == 4 || num == 9) {
+    left = 'I';
+  }
+
+  let right = '';
+  for (let i = base ; i < num ; i++) {
+    right += 'I';
+  }
+
+  return left + result + right;
 }
 
 /////////////////////////////////////////////////////////////
