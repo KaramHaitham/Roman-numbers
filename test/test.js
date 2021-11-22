@@ -25,25 +25,31 @@ function convert(num) {
   if(num == 9) return 'IX';
   if(num == 14) return 'XIV';
 
-  let base = 10;
-
+  let base;
   if(num <= 3) {
     base = 0;
   }
   else if(num < 9) {
     base = 5;
   }
+  else {
+    base = 10;
+  }
 
-  return process(base,num,baseMapping[base]);
+  return process(base, num);
 }
 
-function process ( start , num , result ) {
+function process(start, num) {
+  let result = baseMapping[start];
+
   for (let i = start ; i < num ; i++) {
     result += 'I';
   }
+
   return result;
 }
 
+/////////////////////////////////////////////////////////////
 
 it('Returns the char I for number 1', function() {
     //given
