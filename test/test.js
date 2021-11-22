@@ -9,15 +9,15 @@ const { expect } = require('chai');
  * create a set of roman numbers 5 -> V - ok
  * create a set of roman numbers 6,7,8 -> VI,VII,VIII - ok
  * create a set of roman numbers 9,10 -> IX, X - ok
- * create a set of roman numbers 11,12,13 -> XI, XII , XIII - ok 
- * create a set of roman numbers 14,15,16 -> XIV, XV , XVI 
+ * create a set of roman numbers 11,12,13 -> XI, XII , XIII - ok
+ * create a set of roman numbers 14,15,16 -> XIV, XV , XVI
 
  */
 
- const baseMapping = { 
+ const baseMapping = {
   [0]:'',
   [5]:'V',
-  [10]:'X' 
+  [10]:'X'
 }
 
 function convert(num) {
@@ -158,10 +158,10 @@ it('Returns the char X for number 10', function() {
 it('Returns the char XI for number 11', function() {
   //given
   const expected = 'XI';
-  
+
   //when
   const result = convert(11);
-  
+
   //then
   expect(result).to.equal(expected);
 })
@@ -169,10 +169,10 @@ it('Returns the char XI for number 11', function() {
 it('Returns the char XII for number 12', function() {
   //given
   const expected = 'XII';
-  
+
   //when
   const result = convert(12);
-  
+
   //then
   expect(result).to.equal(expected);
 })
@@ -180,10 +180,10 @@ it('Returns the char XII for number 12', function() {
 it('Returns the char XIII for number 13', function() {
   //given
   const expected = 'XIII';
-  
+
   //when
   const result = convert(13);
-  
+
   //then
   expect(result).to.equal(expected);
 })
@@ -191,10 +191,10 @@ it('Returns the char XIII for number 13', function() {
 it('Returns the char XIV for number 14', function() {
   //given
   const expected = 'XIV';
-  
+
   //when
   const result = convert(14);
-  
+
   //then
   expect(result).to.equal(expected);
 })
